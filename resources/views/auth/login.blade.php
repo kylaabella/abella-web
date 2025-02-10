@@ -12,15 +12,16 @@
 
     <div class="login-container">
         <h2>Login</h2>
-        <form action="/submit_login" method="POST">
+        <form action="{{ url('login')}}" method="POST">
+            @csrf
             <div class="input-container">
                 <i class="fas  fa-user"></i>
-                <input type="text" name="username" placeholder="Username" required>
+                <input type="text" name="username" placeholder="Username" :value="old('name')" required>
             </div>
 
             <div class="input-container">
                 <i class="fas fa-lock"></i> 
-                <input type="password" name="password" placeholder="Password" required>
+                <input type="password" name="password" placeholder="Password" :value="old('password')" required>
             </div>
             
             <button type="submit">Login</button>

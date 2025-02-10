@@ -10,26 +10,28 @@
 
     <div class="form-container">
         <h2>Sign Up</h2>
-        <form action="/submit_signup" method="POST">
+        <form action="{{ route('register')}}" method="POST">
+            @csrf
+            
             <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" required>
+                <label for="name":value="__('Name')">Full Name</label>
+                <input type="text" id="name" name="name" :value="old('name')" required>
             </div>
 
             <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" required>
+                <label for="email" :value="__('Email')">Email Address</label>
+                <input type="email" id="email" name="email" :value="old('email')" required>
             </div>
 
             <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
+                <label for="password" :value="__('Password')">Password</label>
+                <input type="password" id="password" name="password" :value="old('password')"required>
             </div>
 
 
-            <div class="form-group">
+            <div class="form-group1">
                 <input type="submit" value="Sign Up">
-            </div>
+              </div>
             <div>
                 <p>I'm already a member! <a href="{{ route('login')}}">Sign in</a></p>
             </div>
